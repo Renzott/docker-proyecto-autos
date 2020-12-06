@@ -34,9 +34,7 @@ services:
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: mysql
-      MYSQL_DATABASE: autosbd
-    volumes:
-      - ./mysql/database:/docker-entrypoint-initdb.d
+      MYSQL_DATABASE: autosbda6
 
   adminer:
     container_name: mysql-admin-view
