@@ -1,0 +1,79 @@
+# Use root/example as user/password credentials
+version: '2'
+
+services:
+
+  backend-autos:
+    image: tomcat
+    container_name: autos-api
+    depends_on: 
+      - mysql
+    volumes:
+      - ./apiautosclasicos/out/artifacts/apiautos.war:/usr/local/tomcat/webapps/ROOT.war
+    ports:
+      - '8080:8080'
+
+  backend-blog:
+    container_name: blog-api
+    build:
+      context: ./apiblog
+      dockerfile: Dockerfile
+    depends_on: 
+      - mongo
+      - mongo-express
+    ports:
+      - "8090:8090"
+    restart: always
+    networks:
+      - mongo-net
+
+  mysql:
+    image: mysql
+    container_name: mysql-database
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: mysql
+      MYSQL_DATABASE: autosbd
+    volumes:
+      - ./mysql/database:/docker-entrypoint-initdb.d
+
+  adminer:
+    container_name: mysql-admin-view
+    image: adminer
+    restart: always
+    ports:
+      - 8060:8080
+
+  mongo:
+    image: mongo
+    restart: always
+    container_name: mongo
+    hostname: mongo
+    ports:
+      - 27017:27017
+    expose: 
+      - "27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+    networks:
+      - mongo-net
+
+  mongo-express:
+    image: mongo-express
+    container_name: mongo-admin-view
+    restart: always
+    ports:
+      - 8070:8081
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: root
+      ME_CONFIG_MONGODB_ADMINPASSWORD: example
+      ME_CONFIG_BASICAUTH_USERNAME: admin
+      ME_CONFIG_BASICAUTH_PASSWORD: weakpassword
+    networks:
+      - mongo-net
+   
+networks:
+  mongo-net:
+    driver: bridge
