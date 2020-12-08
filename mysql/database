@@ -1534,15 +1534,48 @@ BEGIN
 END $
 /*---------------------------------------------------------------*/
 
-
-/*Tabla Auto*/
 DELIMITER $
-CREATE PROCEDURE SPAL_ListarAuto()
+CREATE PROCEDURE SPAL_ListarAutos()
 BEGIN
-	SELECT codigo_Auto, modelo_Auto, descripcion_Auto, año_Auto, peso_Auto, placa_Auto, color_Auto, puertas_Auto, 
-    cilindrada_Auto, precio_Auto, estado_Auto, foto_Auto, codigo_TipoAuto1, codigo_MarcaAuto1, codigo_Carroceria1,
-	codigo_TipoTransmision1, codigo_Combustible1, codigo_Kilometraje1
-    FROM tb_Auto;
+	SELECT codigo_Auto, 
+			modelo_Auto, 
+			descripcion_Auto, 
+            año_Auto, 
+            peso_Auto, 
+            placa_Auto, 
+            color_Auto, 
+            puertas_Auto, 
+			cilindrada_Auto, 
+            precio_Auto, 
+            estado_Auto, 
+            F.descripcion, 
+            TA.codigo_TipoAuto,
+            TA.nombre_TipoAuto,
+            MA.codigo_MarcaAuto, 
+            MA.nombre_MarcaAuto,
+            C.codigo_Carroceria,
+            C.nombre_Carroceria,
+            TT.codigo_TipoTransmision, 
+			TT.nombre_TipoTransmision,
+            CB.codigo_Combustible,
+            CB.nombre_Combustible, 
+            K.codigo_Kilometraje,
+            K.nombre_Kilometraje
+    FROM tb_Auto A
+		INNER JOIN tb_TipoAuto TA 
+				ON A.codigo_TipoAuto1 = TA.codigo_TipoAuto
+			INNER JOIN tb_MarcaAuto MA 
+					ON A.codigo_MarcaAuto1 = MA.codigo_MarcaAuto
+				INNER JOIN tb_Carroceria C 
+						ON A.codigo_Carroceria1 = C.codigo_Carroceria
+					INNER JOIN tb_TipoTransmision TT 
+							ON A.codigo_TipoTransmision1 = TT.codigo_TipoTransmision
+						INNER JOIN tb_Combustible CB 
+								ON A.codigo_Combustible1 = CB.codigo_Combustible
+							INNER JOIN tb_Kilometraje K 
+									ON A.codigo_Kilometraje1 = K.codigo_Kilometraje
+								INNER JOIN tb_foto F 
+										ON A.foto_Auto = F.codigo;
 END $
 
 
@@ -1556,22 +1589,6 @@ BEGIN
     WHERE codigo_Auto = codigo;
 END $
 
-
-DELIMITER $
-CREATE PROCEDURE SPAL_ListarAutos()
-BEGIN
-	SELECT codigo_Auto, modelo_Auto, descripcion_Auto, año_Auto, peso_Auto, placa_Auto, color_Auto, puertas_Auto, 
-    cilindrada_Auto, precio_Auto, estado_Auto, F.descripcion, TA.nombre_TipoAuto, MA.nombre_MarcaAuto, C.nombre_Carroceria,
-	TT.nombre_TipoTransmision, CB.nombre_Combustible, K.nombre_Kilometraje
-    FROM tb_Auto A
-    INNER JOIN tb_TipoAuto TA ON A.codigo_TipoAuto1 = TA.codigo_TipoAuto
-    INNER JOIN tb_MarcaAuto MA ON A.codigo_MarcaAuto1 = MA.codigo_MarcaAuto
-    INNER JOIN tb_Carroceria C ON A.codigo_Carroceria1 = C.codigo_Carroceria
-    INNER JOIN tb_TipoTransmision TT ON A.codigo_TipoTransmision1 = TT.codigo_TipoTransmision
-    INNER JOIN tb_Combustible CB ON A.codigo_Combustible1 = CB.codigo_Combustible
-    INNER JOIN tb_Kilometraje K ON A.codigo_Kilometraje1 = K.codigo_Kilometraje
-    INNER JOIN tb_foto F ON A.foto_Auto = F.codigo;
-END $
 
 
 DELIMITER $
