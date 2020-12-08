@@ -20,7 +20,7 @@
                       [(ngModel)]="blog.tipo" 
                       name="tipo">
                       <option
-                      *ngFor="let tipo of tipos" [ngValue]="tipo.codigo">
+                      *ngFor="let tipo of tipos" [value]="tipo._id">
                       {{tipo.descripcion}} 
                       </option>
                   </select>
@@ -44,8 +44,7 @@
         </div>
     </div>
 
-    <div class="bg-light">
+    <div class="bg-light mt-4">
         <quill-view-html [content]="htmlstring" theme="snow"></quill-view-html>
     </div>
-    <quill-view-html [content]="htmlstring" theme="snow"></quill-view-html>
 </div>

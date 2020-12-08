@@ -18,7 +18,6 @@ export class HomeComponent implements OnInit {
     this.blogService.getBlogs().subscribe(res => {
         this.result = res;
         this.blogs = this.result.response as Blog[]
-        console.log(this.blogs)
     },console.log)
   }
 

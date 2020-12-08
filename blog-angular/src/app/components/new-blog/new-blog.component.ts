@@ -53,7 +53,7 @@ export class NewBlogComponent implements OnInit {
   }
 
   saveBlog(){
-    if(this.blog.tipo == 1){
+    if(this.blog.tipo == "1"){
       this.blog.tipo = {
         codigo: 1,
         descripcion: 'Noticias',
@@ -73,7 +73,6 @@ export class NewBlogComponent implements OnInit {
       console.log(res),
       err => console.log(err) 
     })
-    console.log(this.blog)
   }
 
 }
