@@ -3,6 +3,14 @@ version: '2'
 
 services:
 
+  frontend-blog:
+    container_name: blog-articulos
+    build: ./blog-angular
+    ports:
+      - '4200:4200'
+    command: > 
+        bash -c "ng serve --host 0.0.0.0"
+
   backend-autos:
     image: tomcat
     container_name: autos-api

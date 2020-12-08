@@ -1,0 +1,31 @@
+<div class="container">
+    <nav class="navbar navbar-expand navbar-light bg-light mb-4">
+        <a class="navbar-brand" href="#">
+            <i class="fa fa-car" aria-hidden="true"></i>
+            Blog</a>
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item">
+                <a class="nav-link" href="/tipo/Noticias">Noticias</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/tipo/Consejos">Consejos</a>
+            </li>
+        </ul>
+        <a href="/" style="text-decoration: none;" class="form-inline my-2 my-lg-0">
+            <i class="fa fa-undo icon" aria-hidden="true"></i>
+            <span>&nbsp;Regreso</span>
+        </a>
+    </nav>
+
+    <div class="grid-articles" >
+        <div class="card mt-4" *ngFor="let blog of blogs">
+            <a [href]="'article/'+blog.codigo + '/' +blog.titulo">
+            <img class="card-img-top" [src]="blog.foto">
+            <div class="card-body">
+                <h4 class="card-title">{{blog.titulo}}</h4>
+                <p class="card-text">{{blog.tipo.descripcion}}</p>
+            </div>
+            </a>
+        </div>
+    </div>
+</div>

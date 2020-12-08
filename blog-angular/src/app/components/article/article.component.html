@@ -1,0 +1,60 @@
+<div class="container">
+    <nav class="navbar navbar-expand navbar-light bg-light mb-4">
+        <a class="navbar-brand" href="#">
+            <i class="fa fa-car" aria-hidden="true"></i>
+            Blog</a>
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item">
+                <a class="nav-link" href="/tipo/Noticias">Noticias</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/tipo/Consejos">Consejos</a>
+            </li>
+        </ul>
+        <a href="/" style="text-decoration: none;" class="form-inline my-2 my-lg-0">
+            <i class="fa fa-undo icon" aria-hidden="true"></i>
+            <span>&nbsp;Regreso</span>
+        </a>
+    </nav>
+
+    <div class="bg-light mb-4">
+        <quill-view-html [content]="blog.texto" theme="snow"></quill-view-html>
+    </div>
+
+    <h3>Comentarios</h3>
+
+    <div class="bg-light mt-4">
+
+        <div class="card mt-2" *ngFor="let comment of comentarioList">
+            <div class="card-body p-4">
+                <h4 class="card-title">{{comment.nombre}}</h4>
+                <small class="form-text text-muted">{{comment.correo}}</small>
+                <p class="card-text">{{comment.comentario}}</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-light mt-4">
+        <div class="card mb-4">
+            <div class="card-body">
+                <h4 class="card-title">Agregar nuevo Comentario</h4>
+                <form>
+                    <div class="form-group">
+                        <label>Nombre</label>
+                        <input type="text" class="form-control" [(ngModel)]="comentario.nombre" name="nombre">
+                    </div>
+                    <div class="form-group">
+                        <label>Correo</label>
+                        <input type="email" class="form-control" [(ngModel)]="comentario.correo" name="correo">
+                    </div>
+                    <div class="form-group">
+                        <label>Comentario</label>
+                        <input type="text" class="form-control" [(ngModel)]="comentario.comentario" name="comentario">
+                    </div>
+                    <button type="button" class="btn btn-primary" (click)="saveComentario()">Guardar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
