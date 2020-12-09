@@ -5,19 +5,6 @@
         <div class="ng-autocomplete">
             <div class="inner-addon right-addon">
                 <i class="fa fa-search"></i>
-                <ng-autocomplete 
-                    [data]="data" 
-                    [searchKeyword]="keyword"
-                    [itemTemplate]="itemTemplate">
-                </ng-autocomplete>
-
-                <ng-template #itemTemplate let-item>
-                    <a [innerHTML]="item.name"></a>
-                </ng-template>
-
-                <ng-template #notFoundTemplate let-notFound>
-                    <div [innerHTML]="notFound"></div>
-                </ng-template>
             </div>
         </div>
     </div>
