@@ -1,0 +1,73 @@
+<nav id="navbar" class="navbar navbar-light bg-light">
+    <div class="form-inline">
+        <h5 id="logo">Logo</h5>
+        &nbsp;&nbsp;&nbsp;
+        <input class="form-control mr-sm-2" placeholder="Busqueda" #modelo>
+        <button class="btn btn-outline-primary" (click)="getAutoModelo(modelo.value)">Buscar</button>
+    </div>
+</nav>
+<div class="row">
+    <div class="col-6 col-sm-3">
+        <div id="content-left">
+            <div id="content-left-elements">
+                <h5>Marca</h5>
+                    <!--Listar Marcas-->
+                    <table>
+                        <tr *ngFor="let marca of marcas">
+                            <td><a class="btn-link" (click)="getAutoMarca(marca.codigoMarcaAuto)">{{marca.nombreMarcaAuto}}</a></td>
+                        </tr>
+                    </table>
+                    <br>
+                <h5>Tipo Auto</h5>
+                    <!--Listar Tipos Auto-->
+                    <table>
+                        <tr *ngFor="let tipo of tipos">
+                            <td><a class="btn-link" (click)="getAutoTipo(tipo.codigoTipoAuto)">{{tipo.nombreTipoAuto}}</a></td>
+                        </tr>
+                    </table>
+                    <br>
+                <h5>Carroceria</h5>
+                    <!--Listar Carrocerias-->
+                    <table>
+                        <tr *ngFor="let carroceria of carrocerias">
+                            <td><a class="btn-link" (click)="getAutoCarroceria(carroceria.codigoCarroceria)">{{carroceria.nombreCarroceria}}</a></td>
+                        </tr>
+                    </table>
+                    <br>
+                <h5>Tipo Transmision</h5>
+                    <!--Listar Tipos Transmision-->
+                    <table>
+                        <tr *ngFor="let tipot of tipost">
+                            <td><a class="btn-link" (click)="getAutoTipoT(tipot.codigoTipoTransmision)">{{tipot.nombreTipoTransmision}}</a></td>
+                        </tr>
+                    </table>
+                    <br>
+            </div>
+        </div>
+    </div>
+    <div class="col-6 col-sm-9">
+        <div id="content-right"></div>
+        <table>
+            <tr *ngFor="let auto of autos">
+                <div id="borde" class="rounded-lg">
+                    <div class="row">
+                        <div class="col-6 col-sm-3">
+                            <img id="picture" src={{auto.fotoAuto}}>
+                        </div>
+                        <div id="descripcion" class="col-6 col-sm-8">
+                            <h5 id="nombre-auto">{{auto.modelooAuto}}</h5>
+                            <p>{{auto.descripcionAuto}}</p>
+                        </div>
+                        <div id="detalle">
+                            ${{auto.precioAuto}}<br>
+                            {{auto.kilometraje.nombreKilometraje}}
+                            <br><br><br>
+                            <button type="button" class="btn btn-secondary">Rentar</button>
+                        </div>
+                    </div>
+                </div>
+                <br>
+            </tr>
+        </table>
+    </div>
+</div>  

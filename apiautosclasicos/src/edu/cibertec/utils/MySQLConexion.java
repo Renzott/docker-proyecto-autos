@@ -17,7 +17,6 @@ public class MySQLConexion {
 			String url = "jdbc:mysql://mysql/autosbd?useSSL=false";
 			String usr = "root";
 			String psw = "mysql";
-			
 			con = DriverManager.getConnection(url, usr, psw);
 			
 		} catch (ClassNotFoundException e) {

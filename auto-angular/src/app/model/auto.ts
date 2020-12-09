@@ -1,0 +1,39 @@
+export interface Auto{
+    codigoAuto?:String;
+    modelooAuto?:String;
+    descripcionAuto?:String;
+    anoAuto?:String;
+    pesoAuto?:String;
+    placaAuto?:String;
+    colorAuto?:String;
+    puertasAuto?:number;
+    cilindradaAuto?:String;
+    precioAuto?:number;
+    estadoAuto?:Boolean;
+    fotoAuto?:String;
+
+    tipoAuto?:{
+        codigoTipoAuto?:String
+        nombreTipoAuto?:String
+    };
+    marcaAuto?:{
+        codigoMarcaAuto?:String
+        nombreMarcaAuto?:String
+    };
+    carroceria?:{
+        codigoCarroceria?:String
+        nombreCarroceria?:String
+    };
+    tipoTransmision?:{
+        codigoTipoTransmision?:String
+        nombreTipoTransmision?:String
+    };
+    combustible?:{
+        codigoCombustible?:String
+        nombreCombustible?:String
+    };
+    kilometraje?:{
+        codigoKilometraje?:String
+        nombreKilometraje?:String
+    };
+}

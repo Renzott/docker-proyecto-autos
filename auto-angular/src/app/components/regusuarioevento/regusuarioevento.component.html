@@ -1,0 +1,90 @@
+
+<br>
+
+<div style="background-color: darkgrey;">
+
+<h1 class="display-4" style="padding-left: 10px; font-family:fantasy;">
+  Registrate al Evento</h1><br>
+
+  <div class="form-group row">
+      <label for="xxx" class="col-sm-2 col-form-label" style="padding-left: 30px;">
+        Nro Documento :
+      </label>
+    <div class="col-sm-4">
+      <input type="text" class="form-control" name="nroDoc" 
+      [(ngModel)]="usuarioEvento.nroDocumentoUsuarioEvento"  
+      placeholder="Ingrese su NroDocumento">
+    </div>
+  </div>
+
+
+  
+  <div class="form-group row">
+      <label for="xxx" class="col-sm-2 col-form-label" style="padding-left: 30px;">
+        Nombre Completo :
+      </label>
+    <div class="col-sm-4">
+      <input type="text" class="form-control" name="nombreUsu" 
+      [(ngModel)]="usuarioEvento.nombresUsuarioEvento" 
+      placeholder="Ingrese su Nombre Completo">
+    </div>
+  </div>
+
+
+  <div class="form-group row">
+      <label for="xxx" class="col-sm-2 col-form-label" style="padding-left: 30px;">
+        Apellido Completo :
+      </label>
+    <div class="col-sm-4">
+      <input type="text" class="form-control" name="apeUsu" 
+      [(ngModel)]="usuarioEvento.apellidosUsuarioEvento" 
+      placeholder="Ingrese su Apellido Completo">
+    </div>
+  </div>
+
+
+  <div class="form-group row">
+      <label for="xxx" class="col-sm-2 col-form-label" style="padding-left: 30px;">
+        Fecha Nacimiento :
+      </label>
+    <div class="col-sm-4">
+      <input type="date" class="form-control" name="fecNacUsu"
+      [(ngModel)]="usuarioEvento.fechaNacimientoUsuarioEvento" 
+      placeholder="Example">
+    </div>
+  </div>
+
+
+  <div class="form-group row">
+    <label for="xxx" class="col-sm-2 col-form-label" style="padding-left: 30px;">
+      Correo Electronico :
+    </label>
+    <div class="col-sm-4">
+      <input type="email" class="form-control" name="correoUsu" 
+      [(ngModel)]="usuarioEvento.correoUsuarioEvento"
+      placeholder="Ingrese su Correo Electronico">
+    </div>
+  </div>
+
+
+  <div class="form-group row">
+    <label for="xxx" class="col-sm-2 col-form-label" style="padding-left: 30px;">
+      Codigo Evento :
+    </label>
+    <div class="col-sm-4">
+      <input type="text" class="form-control" name="codEvento" 
+      [(ngModel)]="usuarioEvento.codigoEventos"
+      placeholder="Ingrese Codigo Evento">
+    </div>
+  </div>
+
+
+  <br>
+
+  <div class="container">
+    <button class="btn btn-success" (click)="saveNewUsuario()" style="width: 300px;">
+      Enviar
+    </button>
+  </div>
+
+</div>

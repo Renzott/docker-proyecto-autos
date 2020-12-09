@@ -1,0 +1,45 @@
+.center-page {
+    height: 70vh;
+    background-color: rgba(240, 198, 198, 0.712);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.inner-addon {
+    position: relative;
+}
+  
+.inner-addon .fa {
+    position: absolute;
+    padding: 15px;
+    pointer-events: none;
+    z-index: 1000;
+}
+
+.ng-autocomplete{
+    display: block;
+    width: 98%;
+}
+  
+.left-addon .fa  { left:  0px;}
+.right-addon .fa { right: 0px;}
+  
+.left-addon input  { padding-left:  30px; }
+.right-addon input { padding-right: 30px; }
+
+.bottom-page{
+    background-color: rgb(179, 210, 218);
+    height: 100vh;
+}
+
+.grid-blog{
+    display: grid;
+    grid-template-rows: 3fr 3fr 3fr;
+    grid-template-columns: 3fr 3fr 3fr;
+}
+
+.grid-item{
+    padding: 20px;
+    text-align: center;
+}
