@@ -11,14 +11,6 @@ services:
     command: > 
         bash -c "ng serve --host 0.0.0.0 --disable-host-check"
 
-  frontend-auto:
-    container_name: auto-articulos
-    build: ./auto-angular
-    ports:
-      - '4600:4200'
-    command: > 
-        bash -c "ng serve --host 0.0.0.0 --disable-host-check"
-
   backend-autos:
     image: tomcat
     container_name: autos-api
