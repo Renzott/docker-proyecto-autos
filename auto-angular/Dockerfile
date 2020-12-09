@@ -10,4 +10,4 @@ RUN npm install --force
 
 COPY . /usr/src/app
 
-EXPOSE 4200
+EXPOSE 4600
